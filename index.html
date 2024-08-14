@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Cube</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            perspective: 1000px;
+        }
+        .cube{
+            height: 150px;
+            width: 150px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(10deg) rotateY(25deg);
+            animation: rotateCubeSideUp 5s infinite linear;
+        }
+        .card{
+            height: 150px;
+            width: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            background: rgba(0, 128, 255, 0.7);
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            font-weight: 700;
+        }
+        .Front { transform: translateZ(75px);}
+        .Back { transform: rotateY(180deg) translateZ(75px);}
+        .Left { transform: rotateY(-90deg) translateZ(75px);}
+        .Bottom { transform: rotateX(-90deg) translateZ(75px);}
+        .Right { transform: rotateY(90deg) translateZ(75px);}
+        .Top { transform: rotateX(90deg) translateZ(75px);}
+
+        @keyframes rotateCubeSideUp {
+            0%{ transform: rotateX(10deg) rotateY(25deg);}
+            50% { transform: rotateX(10deg) rotateY(385deg);}
+            100% { transform: rotateX(370deg) rotateY(385deg);}
+        }
+    </style>
+</head>
+<body>
+    <div class="cube">
+        <div class="card Front">Front</div>
+        <div class="card Back">Back</div>
+        <div class="card Top">Top</div>
+        <div class="card Bottom">Bottom</div>
+        <div class="card Left">Left</div>
+        <div class="card Right">Right</div>
+    </div>
+</body>
+</html>
